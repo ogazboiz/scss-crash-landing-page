@@ -1,8 +1,6 @@
-$font-stack: Arial, Helvetica, sans-serif;
-$light-color: #f4f4f4;
-$primary--color: #0e6cff;
-$secondary--color: #ff8700;
-
+@import "config";
+@import "utilities";
+@import "buttons";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,8 +16,7 @@ img {
   width: 100%;
 }
 .showcase {
-  background-color: $primary--color;
-  color: #fff;
+  @include set-background($primary--color);
   height: 600px;
   nav {
     display: flex;
@@ -31,20 +28,31 @@ img {
       list-style-type: none;
       li {
         padding: 15px;
+      }
+      a {
+        color: set-text-color($primary--color);
         text-decoration: none;
       }
       a:hover {
         color: $secondary--color;
       }
     }
-    a {
-      color: #fff;
+  }
+  &-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 50%;
+    }
+    h1 {
+      font-size: 50px;
+      line-height: 1.2;
+    }
+    p {
+      margin: 20px 0;
     }
   }
-}
-.container {
-  max-width: 1100px;
-  padding: 0 30px;
-  margin: 0 auto;
-  overflow: auto;
 }
